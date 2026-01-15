@@ -1,0 +1,13 @@
+{
+  "config": {
+    "override_bot": "file_share_ota_bot",
+    "app_update": {
+      "latest_version": "1.0.2",
+      "download_url": "https://github.com/OtakuNexa/OtakuNexa-App/releases/download/v1.0.2/app-release.apk",
+      "changelog": "• Fixed batch listing bugs\n• Added new servers",
+      "force_update": false
+    }
+  },
+  "Naruto": { ... },
+  "Haikyuu": { ... }
+}

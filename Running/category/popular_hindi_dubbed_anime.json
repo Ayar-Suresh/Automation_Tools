@@ -1,0 +1,232 @@
+{
+  "data": [
+    {
+      "mal_id": 20,
+      "url": "https://myanimelist.net/anime/20/Naruto",
+      "images": {
+        "jpg": {
+          "image_url": "https://cdn.myanimelist.net/images/anime/13/17405.jpg"
+        }
+      },
+      "title": "Naruto",
+      "title_english": "Naruto",
+      "title_japanese": "ナルト",
+      "type": "TV",
+      "episodes": 220,
+      "status": "Finished Airing",
+      "year": 2002,
+      "score": 7.9,
+      "genres": [
+        { "name": "Action" },
+        { "name": "Adventure" },
+        { "name": "Shounen" }
+      ],
+      "synopsis": "Naruto Uzumaki is a young ninja seeking recognition and aiming to become Hokage."
+    },
+    {
+      "mal_id": 1735,
+      "url": "https://myanimelist.net/anime/1735/Naruto__Shippuuden",
+      "images": {
+        "jpg": {
+          "image_url": "https://cdn.myanimelist.net/images/anime/5/17407.jpg"
+        }
+      },
+      "title": "Naruto: Shippuuden",
+      "title_english": "Naruto: Shippuuden",
+      "title_japanese": "ナルト- 疾風伝",
+      "type": "TV",
+      "episodes": 500,
+      "status": "Finished Airing",
+      "year": 2007,
+      "score": 8.3,
+      "genres": [
+        { "name": "Action" },
+        { "name": "Adventure" },
+        { "name": "Shounen" }
+      ],
+      "synopsis": "Naruto returns home after training and faces stronger enemies while trying to rescue his friend."
+    },
+    {
+      "mal_id": 15681,
+      "url": "https://myanimelist.net/anime/15681/One_Piece",
+      "images": {
+        "jpg": {
+          "image_url": "https://cdn.myanimelist.net/images/anime/6/73245.jpg"
+        }
+      },
+      "title": "One Piece",
+      "title_english": "One Piece",
+      "title_japanese": "ワンピース",
+      "type": "TV",
+      "episodes": 1000,
+      "status": "Airing",
+      "year": 1999,
+      "score": 8.56,
+      "genres": [
+        { "name": "Action" },
+        { "name": "Adventure" },
+        { "name": "Comedy" }
+      ],
+      "synopsis": "Monkey D. Luffy sails the seas with his pirate crew searching for the ultimate treasure, One Piece."
+    },
+    {
+      "mal_id": 51009,
+      "url": "https://myanimelist.net/anime/51009/Demon_Slayer__Kimetsu_no_Yaiba",
+      "images": {
+        "jpg": {
+          "image_url": "https://cdn.myanimelist.net/images/anime/1286/99889.jpg"
+        }
+      },
+      "title": "Demon Slayer: Kimetsu no Yaiba",
+      "title_english": "Demon Slayer: Kimetsu no Yaiba",
+      "title_japanese": "鬼滅の刃",
+      "type": "TV",
+      "episodes": 26,
+      "status": "Finished Airing",
+      "year": 2019,
+      "score": 8.5,
+      "genres": [
+        { "name": "Action" },
+        { "name": "Historical" },
+        { "name": "Supernatural" }
+      ],
+      "synopsis": "Tanjiro Kamado becomes a demon slayer after his family is killed and his sister turned into a demon."
+    },
+    {
+      "mal_id": 40748,
+      "url": "https://myanimelist.net/anime/40748/Jujutsu_Kaisen",
+      "images": {
+        "jpg": {
+          "image_url": "https://cdn.myanimelist.net/images/anime/1171/109222.jpg"
+        }
+      },
+      "title": "Jujutsu Kaisen",
+      "title_english": "Jujutsu Kaisen",
+      "title_japanese": "呪術廻戦",
+      "type": "TV",
+      "episodes": 24,
+      "status": "Finished Airing",
+      "year": 2020,
+      "score": 8.7,
+      "genres": [
+        { "name": "Action" },
+        { "name": "Supernatural" },
+        { "name": "Dark Fantasy" }
+      ],
+      "synopsis": "Yuji Itadori joins a secret organization to battle curses after swallowing a powerful talisman."
+    },
+    {
+      "mal_id": 1535,
+      "url": "https://myanimelist.net/anime/1535/Death_Note",
+      "images": {
+        "jpg": {
+          "image_url": "https://cdn.myanimelist.net/images/anime/9/9453.jpg"
+        }
+      },
+      "title": "Death Note",
+      "title_english": "Death Note",
+      "title_japanese": "デスノート",
+      "type": "TV",
+      "episodes": 37,
+      "status": "Finished Airing",
+      "year": 2006,
+      "score": 8.6,
+      "genres": [
+        { "name": "Thriller" },
+        { "name": "Mystery" },
+        { "name": "Psychological" }
+      ],
+      "synopsis": "Light Yagami finds a notebook that allows him to kill anyone whose name he writes in it."
+    },
+    {
+      "mal_id": 11061,
+      "url": "https://myanimelist.net/anime/11061/Hunter_x_Hunter_2011",
+      "images": {
+        "jpg": {
+          "image_url": "https://cdn.myanimelist.net/images/anime/1337/99013.jpg"
+        }
+      },
+      "title": "Hunter x Hunter (2011)",
+      "title_english": "Hunter x Hunter",
+      "title_japanese": "ハンター×ハンター (2011)",
+      "type": "TV",
+      "episodes": 148,
+      "status": "Finished Airing",
+      "year": 2011,
+      "score": 9.0,
+      "genres": [
+        { "name": "Action" },
+        { "name": "Adventure" },
+        { "name": "Fantasy" }
+      ],
+      "synopsis": "Gon Freecss becomes a Hunter to find his father and experiences extraordinary adventures."
+    },
+    {
+      "mal_id": 49470,
+      "url": "https://myanimelist.net/anime/49470/Blue_Lock",
+      "images": {
+        "jpg": {
+          "image_url": "https://cdn.myanimelist.net/images/anime/1448/126776.jpg"
+        }
+      },
+      "title": "Blue Lock",
+      "title_english": "Blue Lock",
+      "title_japanese": "ブルーロック",
+      "type": "TV",
+      "episodes": 24,
+      "status": "Airing",
+      "year": 2022,
+      "score": 8.2,
+      "genres": [
+        { "name": "Sports" },
+        { "name": "Psychological" }
+      ],
+      "synopsis": "Japan builds an elite striker training program to create the best forward in the world."
+    },
+    {
+      "mal_id": 44511,
+      "url": "https://myanimelist.net/anime/44511/Chainsaw_Man",
+      "images": {
+        "jpg": {
+          "image_url": "https://cdn.myanimelist.net/images/anime/1806/126216.jpg"
+        }
+      },
+      "title": "Chainsaw Man",
+      "title_english": "Chainsaw Man",
+      "title_japanese": "チェンソーマン",
+      "type": "TV",
+      "episodes": 12,
+      "status": "Airing",
+      "year": 2022,
+      "score": 8.6,
+      "genres": [
+        { "name": "Action" },
+        { "name": "Horror" },
+        { "name": "Fantasy" }
+      ],
+      "synopsis": "Denji becomes Chainsaw Man and fights devils while trying to live a normal life."
+    },
+    {
+      "mal_id": 28977,
+      "url": "https://myanimelist.net/anime/28977/Youjo_Senki",
+      "images": {
+        "jpg": {
+          "image_url": "https://cdn.myanimelist.net/images/anime/5/83567.jpg"
+        }
+      },
+      "title": "Youjo Senki (Saga of Tanya the Evil)",
+      "title_english": "Saga of Tanya the Evil",
+      "title_japanese": "幼女戦記",
+      "type": "TV",
+      "episodes": 12,
+      "status": "Finished Airing",
+      "year": 2017,
+      "score": 7.9,
+      "genres": [
+        { "name": "Military" },
+        { "name": "Isekai" }
+      ],
+      "synopsis": "A ruthless salaryman reincarnates as a girl soldier in a magical war setting."
+    }
+  ]
+}

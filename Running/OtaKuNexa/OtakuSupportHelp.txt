@@ -1,0 +1,1 @@
+return "OtexSever${num1}LogK${num2}TNENGQ$suffix";

@@ -1,0 +1,10 @@
+{
+"config": {
+    "override_bot": "your_bot_username",
+    "app_update": {
+      "latest_version": "1.0.2",
+      "force_update": false,
+      "download_url": "https://github.com/OtakuNexa/OtakuNexa-App/releases/download/v1.0.2/app-release.apk",
+      "changelog": "## ✨ New Features\n- Added Season 2 support\n- Improved video player speed\n\n## 🐞 Bug Fixes\n- Fixed crash on startup\n- Fixed black screen issue"
+    }
+  },

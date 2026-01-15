@@ -1,0 +1,95 @@
+name: Hydra Sync Protocol 🐍 (Native)
+
+on:
+  push:
+    branches: [ main ]
+
+jobs:
+  distribute_traffic:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v3
+        with:
+          fetch-depth: 0
+          persist-credentials: false
+
+      # ---------------------------------------------------------
+      # 👇 STEP 1: PREPARE CONTENT (Remove Workflow File)
+      # ---------------------------------------------------------
+      - name: Prepare Content (Remove Workflows)
+        run: |
+          git config --global user.email "bot@otakunexa.com"
+          git config --global user.name "OtakuBot"
+          # Delete the automation script from the package we are sending
+          git rm -rf .github
+          git commit -m "Sync to mirrors (excluding workflow)"
+
+      # =========================================================
+      # 1️⃣ MIRROR 1: otakuhero99-lang
+      # =========================================================
+      - name: Sync to otakuhero99-lang
+        run: |
+          git config --global --unset http.https://github.com/.extraheader || true
+          git remote add mirror1 https://otakuhero99-lang:${{ secrets.PAT_MIRROR_1 }}@github.com/otakuhero99-lang/anime-index.git
+          git push mirror1 main --force
+          git remote remove mirror1
+
+      # =========================================================
+      # 2️⃣ MIRROR 2: balwindar-wq
+      # =========================================================
+      - name: Sync to balwindar-wq
+        run: |
+          git config --global --unset http.https://github.com/.extraheader || true
+          git remote add mirror2 https://balwindar-wq:${{ secrets.PAT_MIRROR_2 }}@github.com/balwindar-wq/anime-index.git
+          git push mirror2 main --force
+          git remote remove mirror2
+
+      # =========================================================
+      # 3️⃣ MIRROR 3: verseotak01-dot
+      # =========================================================
+      - name: Sync to verseotak01-dot
+        run: |
+          git config --global --unset http.https://github.com/.extraheader || true
+          git remote add mirror4 https://verseotak01-dot:${{ secrets.PAT_MIRROR_4 }}@github.com/verseotak01-dot/anime-index.git
+          git push mirror4 main --force
+          git remote remove mirror4
+
+      # =========================================================
+      # 4️⃣ MIRROR 4: otakverse01-dot
+      # =========================================================
+      - name: Sync to otakverse01-dot
+        run: |
+          git config --global --unset http.https://github.com/.extraheader || true
+          git remote add mirror3 https://otakverse01-dot:${{ secrets.PAT_MIRROR_3 }}@github.com/otakverse01-dot/anime-index.git
+          git push mirror3 main --force
+          git remote remove mirror3
+
+      # =========================================================
+      # 5️⃣ MIRROR 5: OtaKuNexa
+      # =========================================================
+      - name: Sync to OtaKuNexa
+        run: |
+          git config --global --unset http.https://github.com/.extraheader || true
+          git remote add mirror5 https://OtaKuNexa:${{ secrets.PAT_MIRROR_5 }}@github.com/OtaKuNexa/anime-index.git
+          git push mirror5 main --force
+          git remote remove mirror5
+
+      # =========================================================
+      # 6️⃣ MIRROR 6: hokaiwatch
+      # =========================================================
+      - name: Sync to hokaiwatch
+        run: |
+          git config --global --unset http.https://github.com/.extraheader || true
+          git remote add mirror6 https://hokaiwatch:${{ secrets.PAT_MIRROR_6 }}@github.com/hokaiwatch/anime-index.git
+          git push mirror6 main --force
+          git remote remove mirror6
+
+      # =========================================================
+      # 7️⃣ MIRROR 7: CyberDrift00
+      # =========================================================
+      - name: Sync to CyberDrift00
+        run: |
+          git config --global --unset http.https://github.com/.extraheader || true
+          git remote add mirror7 https://hokaiwatch:${{ secrets.PAT_MIRROR_7 }}@github.com/hokaiwatch/anime-index.git
+          git push mirror7 main --force
+          git remote remove mirror7

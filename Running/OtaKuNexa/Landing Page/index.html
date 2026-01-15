@@ -1,0 +1,1244 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Download OtakuNexa - The Ultimate Anime Haven</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Orbitron:wght@400;700;900&family=Rajdhani:wght@300;500;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    
+    <style>
+        /* --- CORE VARIABLES & RESET --- */
+        :root {
+            --neon-pink: #FF00CC;
+            --neon-cyan: #00FFFF;
+            --bg-dark: #050507;
+            --bg-panel: #0f0f13;
+            --text-main: #e0e0e0;
+            --font-head: 'Orbitron', sans-serif;
+            --font-body: 'Rajdhani', sans-serif;
+        }
+
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        html {
+            scroll-behavior: smooth;
+        }
+
+        body {
+            background-color: var(--bg-dark);
+            color: var(--text-main);
+            font-family: var(--font-body);
+            overflow-x: hidden;
+            line-height: 1.6;
+        }
+
+        /* --- UTILITIES --- */
+        .container {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 0 20px;
+        }
+
+        .highlight-pink { 
+            color: var(--neon-pink); 
+            text-shadow: 0 0 10px rgba(255, 0, 204, 0.6); 
+        }
+        .highlight-cyan { 
+            color: var(--neon-cyan); 
+            text-shadow: 0 0 10px rgba(0, 255, 255, 0.6); 
+        }
+        
+        .btn {
+            display: inline-block;
+            padding: 15px 40px;
+            font-family: var(--font-head);
+            font-weight: 700;
+            text-transform: uppercase;
+            text-decoration: none;
+            clip-path: polygon(10% 0, 100% 0, 100% 70%, 90% 100%, 0 100%, 0 30%);
+            transition: all 0.3s ease;
+            cursor: pointer;
+            border: none;
+            position: relative;
+            z-index: 10;
+        }
+
+        .btn-primary {
+            background: var(--neon-pink);
+            color: white;
+            box-shadow: 0 0 20px rgba(255, 0, 204, 0.4);
+        }
+
+        .btn-primary:hover {
+            background: white;
+            color: var(--neon-pink);
+            box-shadow: 0 0 40px rgba(255, 0, 204, 0.8);
+            transform: translateY(-2px);
+        }
+
+        .btn-secondary {
+            background: transparent;
+            border: 2px solid var(--neon-cyan);
+            color: var(--neon-cyan);
+        }
+
+        .btn-secondary:hover {
+            background: var(--neon-cyan);
+            color: black;
+            box-shadow: 0 0 20px rgba(0, 255, 255, 0.6);
+        }
+
+        h1, h2, h3 { 
+            font-family: var(--font-head); 
+        }
+
+        /* --- BACKGROUND PARTICLES --- */
+        #particles {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            z-index: -1;
+            opacity: 0.3;
+        }
+
+        /* --- NAVBAR --- */
+        nav {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            padding: 15px 20px;
+            background: rgba(5, 5, 7, 0.95);
+            backdrop-filter: blur(10px);
+            position: fixed;
+            width: 100%;
+            z-index: 100;
+            border-bottom: 1px solid rgba(255,255,255,0.1);
+        }
+
+        .logo-container img {
+            height: 40px;
+            filter: drop-shadow(0 0 5px var(--neon-pink));
+        }
+
+        .nav-links {
+            display: flex;
+            gap: 20px;
+        }
+
+        .nav-links a {
+            color: white;
+            text-decoration: none;
+            font-family: var(--font-head);
+            font-size: 0.85rem;
+            letter-spacing: 1px;
+            transition: 0.3s;
+        }
+
+        .nav-links a:hover { 
+            color: var(--neon-cyan); 
+            text-shadow: 0 0 8px var(--neon-cyan); 
+        }
+
+        .mobile-menu-btn {
+            display: none;
+            background: none;
+            border: none;
+            color: white;
+            font-size: 1.5rem;
+            cursor: pointer;
+        }
+
+        /* --- HERO SECTION --- */
+        .hero {
+            min-height: 100vh;
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            padding: 100px 0 50px;
+            position: relative;
+            overflow: hidden;
+        }
+
+        .hero-content {
+            flex: 1;
+            padding-right: 30px;
+            z-index: 2;
+        }
+
+        .hero-tagline {
+            font-size: 1rem;
+            color: var(--neon-cyan);
+            letter-spacing: 2px;
+            margin-bottom: 10px;
+            font-weight: 700;
+            text-transform: uppercase;
+        }
+
+        .hero h1 {
+            font-size: clamp(2.5rem, 5vw, 4rem);
+            line-height: 1.1;
+            margin-bottom: 20px;
+            text-transform: uppercase;
+        }
+
+        .glitch-text {
+            position: relative;
+        }
+        
+        /* Glitch Animation */
+        .glitch-text::before, .glitch-text::after {
+            content: attr(data-text);
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: var(--bg-dark);
+        }
+        .glitch-text::before {
+            left: 2px;
+            text-shadow: -1px 0 var(--neon-pink);
+            clip: rect(24px, 550px, 90px, 0);
+            animation: glitch-anim-2 3s infinite linear alternate-reverse;
+        }
+        .glitch-text::after {
+            left: -2px;
+            text-shadow: -1px 0 var(--neon-cyan);
+            clip: rect(85px, 550px, 140px, 0);
+            animation: glitch-anim 2.5s infinite linear alternate-reverse;
+        }
+
+        @keyframes glitch-anim {
+            0% { clip: rect(14px, 9999px, 122px, 0); }
+            100% { clip: rect(69px, 9999px, 18px, 0); }
+        }
+        @keyframes glitch-anim-2 {
+            0% { clip: rect(122px, 9999px, 14px, 0); }
+            100% { clip: rect(18px, 9999px, 69px, 0); }
+        }
+
+        .hero-desc {
+            font-size: 1.1rem;
+            margin-bottom: 30px;
+            color: #aaa;
+            max-width: 600px;
+        }
+
+        .hero-visual {
+            flex: 1;
+            display: flex;
+            justify-content: center;
+            position: relative;
+        }
+
+        .app-mockup-container {
+            position: relative;
+            width: 300px;
+            height: 600px;
+        }
+
+        .app-mockup {
+            width: 100%;
+            height: 100%;
+            border-radius: 30px;
+            border: 4px solid var(--neon-pink);
+            box-shadow: 0 0 50px rgba(255, 0, 204, 0.3);
+            position: relative;
+            z-index: 2;
+            background: #000;
+            overflow: hidden;
+            animation: float 6s ease-in-out infinite;
+        }
+
+        .mockup-screen {
+            width: 100%;
+            height: 100%;
+            background-size: cover;
+            background-position: center;
+            transition: opacity 0.5s ease;
+        }
+
+        .mockup-screen.active {
+            opacity: 1;
+        }
+
+        .mockup-screen:not(.active) {
+            opacity: 0;
+            position: absolute;
+            top: 0;
+            left: 0;
+        }
+
+        .mockup-nav {
+            position: absolute;
+            bottom: 20px;
+            left: 0;
+            right: 0;
+            display: flex;
+            justify-content: center;
+            gap: 15px;
+            z-index: 10;
+        }
+
+        .mockup-nav-btn {
+            width: 12px;
+            height: 12px;
+            border-radius: 50%;
+            background: rgba(255,255,255,0.3);
+            border: 2px solid transparent;
+            cursor: pointer;
+            transition: all 0.3s ease;
+        }
+
+        .mockup-nav-btn.active {
+            background: var(--neon-pink);
+            border-color: white;
+            transform: scale(1.2);
+        }
+
+        .screen-info {
+            position: absolute;
+            top: -40px;
+            left: 0;
+            right: 0;
+            text-align: center;
+            font-family: var(--font-head);
+            font-size: 0.9rem;
+            color: var(--neon-cyan);
+            opacity: 0;
+            transition: opacity 0.3s ease;
+        }
+
+        .app-mockup-container:hover .screen-info {
+            opacity: 1;
+        }
+
+        @keyframes float {
+            0% { transform: translateY(0px); }
+            50% { transform: translateY(-15px); }
+            100% { transform: translateY(0px); }
+        }
+
+        /* --- THE PIRATE PITCH --- */
+        .pirate-section {
+            padding: 80px 0;
+            text-align: center;
+            background: linear-gradient(180deg, var(--bg-dark) 0%, #150010 100%);
+        }
+
+        .pirate-box {
+            border: 2px solid var(--neon-cyan);
+            background: rgba(0, 0, 0, 0.6);
+            padding: 30px;
+            border-radius: 20px;
+            position: relative;
+            max-width: 800px;
+            margin: 0 auto;
+            box-shadow: 0 0 30px rgba(0, 255, 255, 0.1);
+        }
+
+        .pirate-icon {
+            font-size: 2.5rem;
+            color: var(--neon-pink);
+            margin-bottom: 20px;
+        }
+
+        .pirate-text {
+            font-size: 1.3rem;
+            font-family: var(--font-body);
+            font-style: italic;
+            color: #fff;
+        }
+
+        /* --- FEATURES GRID --- */
+        .features {
+            padding: 80px 0;
+            background: var(--bg-dark);
+        }
+
+        .section-title {
+            text-align: center;
+            font-size: clamp(2rem, 4vw, 2.5rem);
+            margin-bottom: 50px;
+            text-transform: uppercase;
+        }
+
+        .grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+            gap: 25px;
+        }
+
+        .card {
+            background: var(--bg-panel);
+            padding: 25px;
+            border-radius: 15px;
+            border: 1px solid rgba(255, 255, 255, 0.1);
+            transition: 0.3s;
+            position: relative;
+            overflow: hidden;
+        }
+
+        .card::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 4px;
+            height: 100%;
+            background: var(--neon-pink);
+            transform: scaleY(0);
+            transition: 0.3s;
+        }
+
+        .card:hover {
+            transform: translateY(-10px);
+            box-shadow: 0 10px 30px rgba(0, 0, 0, 0.5);
+        }
+
+        .card:hover::before {
+            transform: scaleY(1);
+        }
+
+        .card-icon {
+            font-size: 2rem;
+            margin-bottom: 15px;
+            color: var(--neon-cyan);
+        }
+
+        .card h3 {
+            margin-bottom: 12px;
+            font-size: 1.3rem;
+        }
+
+        .card p {
+            color: #aaa;
+            font-size: 0.95rem;
+        }
+
+        /* --- SAFETY TERMINAL --- */
+        .safety-section {
+            padding: 60px 0;
+            background: #0a0a0e;
+        }
+
+        .terminal-window {
+            background: #1e1e1e;
+            border-radius: 10px;
+            box-shadow: 0 0 40px rgba(0, 0, 0, 0.5);
+            font-family: 'Courier New', Courier, monospace;
+            max-width: 800px;
+            margin: 0 auto;
+            overflow: hidden;
+            border: 1px solid #333;
+        }
+
+        .terminal-header {
+            background: #2d2d2d;
+            padding: 10px 15px;
+            display: flex;
+            gap: 8px;
+            align-items: center;
+        }
+
+        .dot { width: 12px; height: 12px; border-radius: 50%; }
+        .red { background: #ff5f56; }
+        .yellow { background: #ffbd2e; }
+        .green { background: #27c93f; }
+
+        .terminal-body {
+            padding: 20px;
+            color: #27c93f;
+            min-height: 200px;
+        }
+
+        .scan-line {
+            margin-bottom: 10px;
+            display: block;
+        }
+
+        .scan-success {
+            color: var(--neon-cyan);
+            font-weight: bold;
+            margin-top: 20px;
+            font-size: 1.1rem;
+            border: 1px solid var(--neon-cyan);
+            padding: 10px;
+            display: inline-block;
+        }
+
+        /* --- FOOTER --- */
+        footer {
+            padding: 40px 0;
+            background: black;
+            text-align: center;
+            border-top: 1px solid #333;
+        }
+
+        .footer-logo img {
+            height: 40px;
+            margin-bottom: 20px;
+        }
+
+        .social-icons {
+            display: flex;
+            justify-content: center;
+            gap: 20px;
+            margin: 20px 0;
+        }
+
+        .social-icons a {
+            color: white;
+            font-size: 1.3rem;
+            transition: 0.3s;
+            width: 45px;
+            height: 45px;
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            background: rgba(255,255,255,0.1);
+        }
+
+        .social-icons a:hover {
+            background: var(--neon-pink);
+            color: white;
+            transform: translateY(-3px);
+        }
+        
+        /* --- MOBILE RESPONSIVE --- */
+        @media (max-width: 992px) {
+            .hero {
+                flex-direction: column;
+                text-align: center;
+                padding: 120px 0 50px;
+            }
+            
+            .hero-content {
+                padding-right: 0;
+                margin-bottom: 50px;
+                width: 100%;
+            }
+            
+            .hero-desc {
+                margin-left: auto;
+                margin-right: auto;
+            }
+            
+            .hero-visual {
+                width: 100%;
+                max-width: 320px;
+                margin: 0 auto;
+            }
+        }
+
+        @media (max-width: 768px) {
+            .nav-links {
+                display: none;
+            }
+            
+            .mobile-menu-btn {
+                display: block;
+            }
+            
+            .pirate-box {
+                padding: 20px;
+                margin: 0 15px;
+            }
+            
+            .pirate-text {
+                font-size: 1.1rem;
+            }
+            
+            .grid {
+                grid-template-columns: 1fr;
+                gap: 20px;
+            }
+            
+            .btn {
+                padding: 12px 25px;
+                font-size: 0.9rem;
+            }
+            
+            .hero h1 {
+                font-size: 2.2rem;
+            }
+            
+            .app-mockup-container {
+                width: 280px;
+                height: 560px;
+            }
+            
+            .container {
+                padding: 0 15px;
+            }
+        }
+
+        @media (max-width: 480px) {
+            .hero h1 {
+                font-size: 1.8rem;
+            }
+            
+            .hero-desc {
+                font-size: 1rem;
+            }
+            
+            .section-title {
+                font-size: 1.8rem;
+            }
+            
+            .card {
+                padding: 20px;
+            }
+            
+            .pirate-icon {
+                font-size: 2rem;
+            }
+            
+            .social-icons {
+                gap: 15px;
+            }
+            
+            .social-icons a {
+                width: 40px;
+                height: 40px;
+                font-size: 1.1rem;
+            }
+        }
+
+        /* --- LOADING OVERLAY --- */
+        .loading-overlay {
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: #000;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: center;
+            z-index: 3;
+            transition: opacity 0.5s ease;
+        }
+
+        .loading-overlay.hidden {
+            opacity: 0;
+            pointer-events: none;
+        }
+
+        .loading-gif {
+            width: 100px;
+            height: 100px;
+            margin-bottom: 20px;
+        }
+
+        .loading-text {
+            color: var(--neon-cyan);
+            font-family: var(--font-head);
+            font-size: 1rem;
+            letter-spacing: 2px;
+        }
+
+        /* --- MOCKUP SCREENS --- */
+        .mockup-content {
+            width: 100%;
+            height: 100%;
+            padding: 20px;
+            display: flex;
+            flex-direction: column;
+            background: linear-gradient(135deg, #1a1a2e 0%, #16213e 100%);
+        }
+
+        .mockup-header {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            padding-bottom: 15px;
+            border-bottom: 1px solid rgba(255,255,255,0.1);
+        }
+
+        .mockup-logo {
+            width: 30px;
+            height: 30px;
+            background: var(--neon-pink);
+            border-radius: 8px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            color: white;
+            font-weight: bold;
+            font-size: 0.8rem;
+        }
+
+        .mockup-title {
+            font-family: var(--font-head);
+            font-size: 1rem;
+            color: white;
+        }
+
+        .mockup-search {
+            background: rgba(255,255,255,0.1);
+            border-radius: 20px;
+            padding: 8px 15px;
+            margin: 15px 0;
+            color: rgba(255,255,255,0.7);
+            font-size: 0.9rem;
+        }
+
+        .mockup-grid {
+            flex: 1;
+            display: grid;
+            grid-template-columns: repeat(2, 1fr);
+            gap: 10px;
+            margin-top: 10px;
+        }
+
+        .mockup-grid-item {
+            background: rgba(255,255,255,0.05);
+            border-radius: 10px;
+            overflow: hidden;
+            transition: transform 0.3s ease;
+        }
+
+        .mockup-grid-item:hover {
+            transform: scale(1.05);
+        }
+
+        .mockup-grid-img {
+            width: 100%;
+            height: 80px;
+            background-size: cover;
+            background-position: center;
+        }
+
+        .mockup-grid-title {
+            padding: 8px;
+            font-size: 0.8rem;
+            color: white;
+            text-align: center;
+        }
+
+        .mockup-navbar {
+            position: absolute;
+            bottom: 0;
+            left: 0;
+            right: 0;
+            background: rgba(0,0,0,0.8);
+            padding: 10px;
+            display: flex;
+            justify-content: space-around;
+        }
+
+        .mockup-nav-item {
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            color: rgba(255,255,255,0.6);
+            font-size: 0.7rem;
+            transition: color 0.3s ease;
+        }
+
+        .mockup-nav-item.active {
+            color: var(--neon-pink);
+        }
+
+        .mockup-nav-icon {
+            font-size: 1.2rem;
+            margin-bottom: 3px;
+        }
+    </style>
+</head>
+<body>
+
+    <canvas id="particles"></canvas>
+
+    <nav class="container">
+        <div class="logo-container">
+            <img src="https://i.ibb.co/L5k6Y15/otaku-nexa-text.png" alt="OtakuNexa Logo" onerror="this.src='data:image/svg+xml;base64,PHN2ZyB4bWxucz0iaHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmciIHZpZXdCb3g9IjAgMCAxMDAgMTAwIj48Y2lyY2xlIGN4PSI1MCIgY3k9IjUwIiByPSI0MCIgZmlsbD0iI0ZGMDBDQyIvPjwvc3ZnPg=='"> 
+        </div>
+        <div class="nav-links">
+            <a href="#features">FEATURES</a>
+            <a href="#safety">SECURITY</a>
+            <a href="#community">COMMUNITY</a>
+            <a href="https://t.me/yourchannel" target="_blank">TELEGRAM</a>
+        </div>
+        <button class="mobile-menu-btn">
+            <i class="fas fa-bars"></i>
+        </button>
+        <a href="#download" class="btn btn-primary" style="padding: 10px 20px; font-size: 0.8rem;">Get App</a>
+    </nav>
+
+    <section class="hero container">
+        <div class="hero-content">
+            <div class="hero-tagline">The Next Gen Anime Platform</div>
+            <h1 class="glitch-text" data-text="UNLEASH YOUR OTAKU SOUL">UNLEASH YOUR <br><span class="highlight-pink">OTAKU</span> SOUL</h1>
+            <p class="hero-desc">
+                Stop paying for restricted libraries. Enter the world of <strong>OtakuNexa</strong>. Unlimited streaming, community-driven lists, and the power of the open sea.
+            </p>
+            <div style="display: flex; gap: 15px; flex-wrap: wrap; justify-content: center;">
+                <a href="#download" class="btn btn-primary"><i class="fas fa-download"></i> Download APK v1.0</a>
+                <a href="#features" class="btn btn-secondary">Explore Features</a>
+            </div>
+        </div>
+        
+        <div class="hero-visual">
+            <div class="app-mockup-container">
+                <div class="app-mockup">
+                    <!-- Loading Screen -->
+                    <div class="loading-overlay" id="loadingScreen">
+                        <div class="loading-gif">
+                            <iframe src="https://giphy.com/embed/xUNd9ErVTxvYoQmR0s" width="100" height="100" frameBorder="0" class="giphy-embed" allowFullScreen></iframe>
+                        </div>
+                        <div class="loading-text">LOADING OTAKUNEXA...</div>
+                    </div>
+                    
+                    <!-- Screen 1: Home -->
+                    <div class="mockup-screen active" id="screen1" style="background-image: url('https://picsum.photos/300/600?random=1');">
+                        <div class="mockup-content">
+                            <div class="mockup-header">
+                                <div class="mockup-logo">ON</div>
+                                <div class="mockup-title">Home</div>
+                                <i class="fas fa-user" style="color: white;"></i>
+                            </div>
+                            <div class="mockup-search">
+                                <i class="fas fa-search"></i> Search anime...
+                            </div>
+                            <div class="mockup-grid">
+                                <div class="mockup-grid-item">
+                                    <div class="mockup-grid-img" style="background-image: url('https://picsum.photos/150/100?random=2');"></div>
+                                    <div class="mockup-grid-title">Attack on Titan</div>
+                                </div>
+                                <div class="mockup-grid-item">
+                                    <div class="mockup-grid-img" style="background-image: url('https://picsum.photos/150/100?random=3');"></div>
+                                    <div class="mockup-grid-title">Demon Slayer</div>
+                                </div>
+                                <div class="mockup-grid-item">
+                                    <div class="mockup-grid-img" style="background-image: url('https://picsum.photos/150/100?random=4');"></div>
+                                    <div class="mockup-grid-title">One Piece</div>
+                                </div>
+                                <div class="mockup-grid-item">
+                                    <div class="mockup-grid-img" style="background-image: url('https://picsum.photos/150/100?random=5');"></div>
+                                    <div class="mockup-grid-title">Jujutsu Kaisen</div>
+                                </div>
+                            </div>
+                            <div class="mockup-navbar">
+                                <div class="mockup-nav-item active">
+                                    <i class="fas fa-home mockup-nav-icon"></i>
+                                    <span>Home</span>
+                                </div>
+                                <div class="mockup-nav-item">
+                                    <i class="fas fa-play-circle mockup-nav-icon"></i>
+                                    <span>Shorts</span>
+                                </div>
+                                <div class="mockup-nav-item">
+                                    <i class="fas fa-users mockup-nav-icon"></i>
+                                    <span>Community</span>
+                                </div>
+                                <div class="mockup-nav-item">
+                                    <i class="fas fa-user mockup-nav-icon"></i>
+                                    <span>Profile</span>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    
+                    <!-- Screen 2: Shorts -->
+                    <div class="mockup-screen" id="screen2" style="background-image: url('https://picsum.photos/300/600?random=6');"></div>
+                    
+                    <!-- Screen 3: Community -->
+                    <div class="mockup-screen" id="screen3" style="background-image: url('https://picsum.photos/300/600?random=7');"></div>
+                    
+                    <!-- Screen 4: Profile -->
+                    <div class="mockup-screen" id="screen4" style="background-image: url('https://picsum.photos/300/600?random=8');"></div>
+                </div>
+                
+                <div class="screen-info" id="screenInfo">Home Screen</div>
+                
+                <div class="mockup-nav">
+                    <div class="mockup-nav-btn active" data-screen="1"></div>
+                    <div class="mockup-nav-btn" data-screen="2"></div>
+                    <div class="mockup-nav-btn" data-screen="3"></div>
+                    <div class="mockup-nav-btn" data-screen="4"></div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <section class="pirate-section">
+        <div class="container">
+            <div class="pirate-box">
+                <i class="fas fa-skull-crossbones pirate-icon"></i>
+                <h2 class="highlight-pink" style="margin-bottom: 20px;">AHOY, NAKAMA!</h2>
+                <p class="pirate-text">
+                    "Why pay gold coins to the greedy corporations when the One Piece of anime is right here? We've plundered the digital seas to bring ye the finest treasure! No ads to sink yer ship, just smooth sailing and unlimited episodes. Join the crew of OtakuNexa!"
+                </p>
+            </div>
+        </div>
+    </section>
+
+    <section id="features" class="features">
+        <div class="container">
+            <h2 class="section-title">Why <span class="highlight-cyan">OtakuNexa</span> Beats The Rest</h2>
+            
+            <div class="grid">
+                <div class="card">
+                    <i class="fab fa-youtube card-icon"></i>
+                    <h3>The YouTube Proxy</h3>
+                    <p>Stream limited anime officially available on YouTube but through our <strong>Superior UI</strong>. No clutter, just pure listing logic and aesthetic playback.</p>
+                </div>
+
+                <div class="card">
+                    <i class="fas fa-bolt card-icon" style="color: var(--neon-pink);"></i>
+                    <h3>Otaku Shorts</h3>
+                    <p>Addicted to scrolling? Watch best Anime Moments, Edits, and AMVs in a dedicated vertical feed. The TikTok for weebs is finally here.</p>
+                </div>
+
+                <div class="card">
+                    <i class="fas fa-users card-icon"></i>
+                    <h3>The Nakama Guild</h3>
+                    <p>Specific tastes? We got you. Find lists like <em>"Anime where MC is a pervert"</em> or <em>"Overpowered Transfer Student"</em>. Curated by the community, for the community.</p>
+                </div>
+
+                <div class="card">
+                    <i class="fab fa-telegram card-icon" style="color: #0088cc;"></i>
+                    <h3>The Infinite Vault</h3>
+                    <p>Hosted on Telegram servers. This means <strong>Unlimited Collection</strong>, blazing fast speeds, and fewer ads than those sketchy websites.</p>
+                </div>
+
+                <div class="card">
+                    <i class="fas fa-concierge-bell card-icon"></i>
+                    <h3>Bounty Board</h3>
+                    <p>Can't find an anime? Put a bounty on it! Use our Request System and we deliver the content in <strong>24-48 Hours</strong>. We work for you.</p>
+                </div>
+
+                <div class="card">
+                    <i class="fas fa-hand-holding-heart card-icon"></i>
+                    <h3>Become a Captain</h3>
+                    <p>Don't just watch. Contribute! Suggest anime to expand the database or create your own custom watchlists for others to follow.</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <section id="safety" class="safety-section">
+        <div class="container">
+            <h2 class="section-title">Is It <span class="highlight-pink">Safe?</span></h2>
+            <p style="text-align: center; color: #aaa; margin-bottom: 30px;">
+                We are developers, not villains. We use safe protocols. But don't take our word for it—trust the scan.
+            </p>
+
+            <div class="terminal-window">
+                <div class="terminal-header">
+                    <div class="dot red"></div>
+                    <div class="dot yellow"></div>
+                    <div class="dot green"></div>
+                    <span style="color: #aaa; font-size: 12px; margin-left: 10px;">root@otakunexa:~/security_scan</span>
+                </div>
+                <div class="terminal-body" id="terminal-content">
+                    </div>
+            </div>
+        </div>
+    </section>
+
+    <footer id="download">
+        <div class="container">
+            <div class="footer-logo">
+                <h2 style="font-family: var(--font-head); color: white;">OTAKU <span class="highlight-pink">NEXA</span></h2>
+            </div>
+            <h3 style="margin-bottom: 25px;">Ready to set sail?</h3>
+            <a href="#" class="btn btn-primary" style="font-size: 1.3rem; margin-bottom: 30px; padding: 15px 40px;">DOWNLOAD APK NOW</a>
+            <p style="color: #666; font-size: 0.8rem; margin-bottom: 20px;">Android 8.0+ Required • v1.0.4 • 15MB</p>
+            
+            <div class="social-icons">
+                <a href="#"><i class="fab fa-telegram"></i></a>
+                <a href="#"><i class="fab fa-discord"></i></a>
+                <a href="#"><i class="fab fa-instagram"></i></a>
+                <a href="#"><i class="fas fa-envelope"></i></a>
+            </div>
+            <br>
+            <p style="color: #444; font-size: 0.8rem;">&copy; 2025 OtakuNexa. Made by Otakus for Otakus.</p>
+        </div>
+    </footer>
+
+    <script>
+        // --- PARTICLE SYSTEM ---
+        const canvas = document.getElementById('particles');
+        const ctx = canvas.getContext('2d');
+        canvas.width = window.innerWidth;
+        canvas.height = window.innerHeight;
+
+        let particlesArray;
+
+        class Particle {
+            constructor() {
+                this.x = Math.random() * canvas.width;
+                this.y = Math.random() * canvas.height;
+                this.size = Math.random() * 2;
+                this.speedX = (Math.random() * 1) - 0.5;
+                this.speedY = (Math.random() * 1) - 0.5;
+                this.color = Math.random() > 0.5 ? '#FF00CC' : '#00FFFF';
+            }
+            update() {
+                this.x += this.speedX;
+                this.y += this.speedY;
+                if (this.x > canvas.width || this.x < 0) this.speedX = -this.speedX;
+                if (this.y > canvas.height || this.y < 0) this.speedY = -this.speedY;
+            }
+            draw() {
+                ctx.fillStyle = this.color;
+                ctx.beginPath();
+                ctx.arc(this.x, this.y, this.size, 0, Math.PI * 2);
+                ctx.fill();
+            }
+        }
+
+        function initParticles() {
+            particlesArray = [];
+            for (let i = 0; i < 80; i++) {
+                particlesArray.push(new Particle());
+            }
+        }
+
+        function animateParticles() {
+            ctx.clearRect(0, 0, canvas.width, canvas.height);
+            for (let i = 0; i < particlesArray.length; i++) {
+                particlesArray[i].update();
+                particlesArray[i].draw();
+            }
+            requestAnimationFrame(animateParticles);
+        }
+
+        initParticles();
+        animateParticles();
+
+        window.addEventListener('resize', () => {
+            canvas.width = window.innerWidth;
+            canvas.height = window.innerHeight;
+            initParticles();
+        });
+
+        // --- TERMINAL TYPING EFFECT ---
+        const terminalContent = document.getElementById('terminal-content');
+        const logs = [
+            "> Initializing VirusTotal API...",
+            "> Scanning package: com.otakunexa.android...",
+            "> Checking signature hash...",
+            "> Analyzing Manifest permissions...",
+            "> Searching for malware patterns...",
+            "> Searching for spyware...",
+            "> RESULTS:",
+            "[OK] Play Protect: Verified",
+            "[OK] Malware: None Detected",
+            "[OK] Adware: None Detected",
+            "[OK] Mining Scripts: None Detected",
+            "> STATUS: CLEAN. SAFE TO INSTALL."
+        ];
+
+        let logIndex = 0;
+        let charIndex = 0;
+
+        function typeWriter() {
+            if (logIndex < logs.length) {
+                let currentLine = logs[logIndex];
+                
+                let lineDiv = document.getElementById(`line-${logIndex}`);
+                if (!lineDiv) {
+                    lineDiv = document.createElement('div');
+                    lineDiv.id = `line-${logIndex}`;
+                    lineDiv.className = 'scan-line';
+                    if(currentLine.includes("[OK]")) lineDiv.style.color = "#00FFFF";
+                    if(currentLine.includes("STATUS:")) {
+                        lineDiv.className = "scan-success";
+                        lineDiv.innerHTML = "✔ SYSTEM INTEGRITY CONFIRMED: 100% SAFE";
+                        terminalContent.appendChild(lineDiv);
+                        return; 
+                    }
+                    terminalContent.appendChild(lineDiv);
+                }
+
+                if (charIndex < currentLine.length) {
+                    lineDiv.textContent += currentLine.charAt(charIndex);
+                    charIndex++;
+                    setTimeout(typeWriter, 20);
+                } else {
+                    logIndex++;
+                    charIndex = 0;
+                    setTimeout(typeWriter, 300);
+                }
+            }
+        }
+
+        // --- INTERACTIVE MOCKUP ---
+        const loadingScreen = document.getElementById('loadingScreen');
+        const mockupScreens = document.querySelectorAll('.mockup-screen');
+        const navButtons = document.querySelectorAll('.mockup-nav-btn');
+        const screenInfo = document.getElementById('screenInfo');
+        
+        const screenTitles = {
+            1: "Home Screen",
+            2: "Shorts Feed",
+            3: "Community",
+            4: "User Profile"
+        };
+
+        // Simulate app loading
+        setTimeout(() => {
+            loadingScreen.classList.add('hidden');
+        }, 3000);
+
+        // Navigation between screens
+        navButtons.forEach(button => {
+            button.addEventListener('click', function() {
+                const targetScreen = this.getAttribute('data-screen');
+                
+                // Update active navigation button
+                navButtons.forEach(btn => btn.classList.remove('active'));
+                this.classList.add('active');
+                
+                // Update active screen
+                mockupScreens.forEach(screen => screen.classList.remove('active'));
+                document.getElementById(`screen${targetScreen}`).classList.add('active');
+                
+                // Update screen info
+                screenInfo.textContent = screenTitles[targetScreen];
+                
+                // Add dynamic content for each screen
+                updateScreenContent(targetScreen);
+            });
+        });
+
+        // Auto rotate screens every 5 seconds
+        let currentScreen = 1;
+        setInterval(() => {
+            currentScreen = currentScreen % 4 + 1;
+            document.querySelector(`.mockup-nav-btn[data-screen="${currentScreen}"]`).click();
+        }, 5000);
+
+        function updateScreenContent(screenId) {
+            const screen = document.getElementById(`screen${screenId}`);
+            
+            // Clear previous content
+            if (screenId > 1) {
+                screen.innerHTML = '';
+            }
+            
+            // Different content for each screen
+            switch(screenId) {
+                case '2': // Shorts
+                    screen.innerHTML = `
+                        <div class="mockup-content" style="justify-content: center; align-items: center;">
+                            <div style="text-align: center; color: white; padding: 20px;">
+                                <i class="fas fa-play-circle" style="font-size: 3rem; color: var(--neon-pink); margin-bottom: 20px;"></i>
+                                <h3 style="margin-bottom: 10px;">Otaku Shorts</h3>
+                                <p>Vertical anime moments feed</p>
+                                <div style="margin-top: 30px; width: 200px; height: 300px; background-image: url('https://picsum.photos/200/300?random=9'); background-size: cover; border-radius: 15px; margin: 20px auto;"></div>
+                            </div>
+                        </div>
+                    `;
+                    break;
+                    
+                case '3': // Community
+                    screen.innerHTML = `
+                        <div class="mockup-content">
+                            <div class="mockup-header">
+                                <div class="mockup-logo">ON</div>
+                                <div class="mockup-title">Community</div>
+                                <i class="fas fa-plus" style="color: white;"></i>
+                            </div>
+                            <div style="padding: 15px;">
+                                <h3 style="color: white; margin-bottom: 15px;">Top Lists</h3>
+                                <div style="background: rgba(255,255,255,0.05); padding: 10px; border-radius: 10px; margin-bottom: 10px;">
+                                    <div style="color: var(--neon-cyan);">⚔️ OP Transfer Students</div>
+                                    <div style="font-size: 0.8rem; color: #aaa;">245 anime • Updated today</div>
+                                </div>
+                                <div style="background: rgba(255,255,255,0.05); padding: 10px; border-radius: 10px; margin-bottom: 10px;">
+                                    <div style="color: var(--neon-cyan);">😈 MC is a Pervert</div>
+                                    <div style="font-size: 0.8rem; color: #aaa;">189 anime • Updated 2 days ago</div>
+                                </div>
+                                <div style="background: rgba(255,255,255,0.05); padding: 10px; border-radius: 10px;">
+                                    <div style="color: var(--neon-cyan);">👑 Underrated Gems</div>
+                                    <div style="font-size: 0.8rem; color: #aaa;">156 anime • Updated 1 week ago</div>
+                                </div>
+                            </div>
+                        </div>
+                    `;
+                    break;
+                    
+                case '4': // Profile
+                    screen.innerHTML = `
+                        <div class="mockup-content">
+                            <div style="text-align: center; padding: 30px 20px; background: linear-gradient(to bottom, var(--neon-pink), transparent);">
+                                <div style="width: 80px; height: 80px; background-image: url('https://picsum.photos/80/80?random=10'); background-size: cover; border-radius: 50%; margin: 0 auto 15px; border: 3px solid white;"></div>
+                                <h3 style="color: white;">AnimeLover99</h3>
+                                <p style="color: #aaa; font-size: 0.9rem;">Level 42 • 156 Anime Watched</p>
+                            </div>
+                            <div style="padding: 20px;">
+                                <h4 style="color: white; margin-bottom: 15px;">My Lists</h4>
+                                <div style="display: flex; gap: 10px; overflow-x: auto;">
+                                    <div style="min-width: 100px; height: 120px; background-image: url('https://picsum.photos/100/120?random=11'); background-size: cover; border-radius: 10px;"></div>
+                                    <div style="min-width: 100px; height: 120px; background-image: url('https://picsum.photos/100/120?random=12'); background-size: cover; border-radius: 10px;"></div>
+                                    <div style="min-width: 100px; height: 120px; background-image: url('https://picsum.photos/100/120?random=13'); background-size: cover; border-radius: 10px;"></div>
+                                </div>
+                            </div>
+                        </div>
+                    `;
+                    break;
+            }
+        }
+
+        // Initialize other screens
+        updateScreenContent('2');
+        updateScreenContent('3');
+        updateScreenContent('4');
+
+        // Mobile menu toggle
+        const mobileMenuBtn = document.querySelector('.mobile-menu-btn');
+        const navLinks = document.querySelector('.nav-links');
+        
+        mobileMenuBtn.addEventListener('click', () => {
+            navLinks.style.display = navLinks.style.display === 'flex' ? 'none' : 'flex';
+            if (navLinks.style.display === 'flex') {
+                navLinks.style.flexDirection = 'column';
+                navLinks.style.position = 'absolute';
+                navLinks.style.top = '100%';
+                navLinks.style.left = '0';
+                navLinks.style.right = '0';
+                navLinks.style.background = 'rgba(5, 5, 7, 0.95)';
+                navLinks.style.padding = '20px';
+                navLinks.style.gap = '15px';
+                navLinks.style.backdropFilter = 'blur(10px)';
+            }
+        });
+
+        // Close mobile menu on link click
+        document.querySelectorAll('.nav-links a').forEach(link => {
+            link.addEventListener('click', () => {
+                if (window.innerWidth <= 768) {
+                    navLinks.style.display = 'none';
+                }
+            });
+        });
+
+        // Start terminal animation when scrolled into view
+        const observer = new IntersectionObserver((entries) => {
+            entries.forEach(entry => {
+                if(entry.isIntersecting) {
+                    typeWriter();
+                }
+            });
+        });
+
+        observer.observe(document.querySelector('.safety-section'));
+    </script>
+</body>
+</html>
